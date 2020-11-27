@@ -21,10 +21,19 @@ class CharacterTableViewCell: UITableViewCell {
         $0.layer.shadowRadius = 2
         $0.layer.shadowColor = UIColor(hexFromString: "#4F9BF5").cgColor
         $0.layer.shadowOffset = CGSize(width: 3, height: 3)
+        $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIView())
     
+    private let stackView: UIStackView = {
+        $0.axis = .horizontal
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.spacing = 24.0
+        return $0
+    }(UIStackView())
+    
     private let avatarImageView: UIImageView = {
+        $0.backgroundColor = .red
         $0.contentMode = .scaleAspectFit
         $0.layer.masksToBounds = true
         $0.clipsToBounds = true
@@ -39,13 +48,12 @@ class CharacterTableViewCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
-    
+
     // MARK: Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupContainerView()
-        setupAvatarImageView()
-        setupNameLabel()
+        setupStackView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,33 +69,25 @@ class CharacterTableViewCell: UITableViewCell {
     private func setupContainerView() {
         contentView.addSubview(containerView)
         
-        let marginTop = NSLayoutConstraint(item: containerView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 12)
-        let marginLeft = NSLayoutConstraint(item: containerView, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1.0, constant: 24)
-        let marginRight = NSLayoutConstraint(item: containerView, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1.0, constant: -24)
-        let marginBottom = NSLayoutConstraint(item: containerView, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: 12)
-        
-        NSLayoutConstraint.activate([marginTop, marginLeft, marginRight, marginBottom])
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12.0),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24.0),
+            contentView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 24.0),
+            contentView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 12.0)
+        ])
     }
     
-    private func setupAvatarImageView() {
-        contentView.addSubview(avatarImageView)
+    private func setupStackView() {
+        containerView.addSubview(stackView)
         
-        let marginTop = NSLayoutConstraint(item: avatarImageView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 0)
-        let marginLeft = NSLayoutConstraint(item: avatarImageView, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1.0, constant: 0)
-        let marginBottom = NSLayoutConstraint(item: avatarImageView, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: 0)
-
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
+        ])
         
-        NSLayoutConstraint.activate([marginTop, marginLeft, marginBottom])
-    }
-    
-    private func setupNameLabel() {
-        contentView.addSubview(nameLabel)
-        
-        let marginTop = NSLayoutConstraint(item: nameLabel, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 24)
-        let marginLeft = NSLayoutConstraint(item: nameLabel, attribute: .left, relatedBy: .equal, toItem: avatarImageView, attribute: .right, multiplier: 1.0, constant: 24)
-        let marginRight = NSLayoutConstraint(item: nameLabel, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1.0, constant:0)
-        let marginBottom = NSLayoutConstraint(item: nameLabel, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: 0)
-        
-        NSLayoutConstraint.activate([marginTop, marginLeft, marginRight, marginBottom])
+        stackView.addArrangedSubview(avatarImageView)
+        stackView.addArrangedSubview(nameLabel)
     }
 }
