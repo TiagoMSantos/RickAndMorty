@@ -17,16 +17,34 @@ class CharacterListViewController: BaseViewController {
     private var characterList: [Character] = []
     
     private let titleLabel: UILabel = {
-        $0.text = "Characters"
-        $0.font = .boldSystemFont(ofSize: 24)
+        $0.text = "Rick And Morty App"
+        $0.font = UIFont(name: "HelveticaNeue-Medium", size: 26)
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.textColor = .black
+        $0.textColor = #colorLiteral(red: 0.2179532051, green: 0.2036896348, blue: 0.1906547546, alpha: 1)
+        return $0
+    }(UILabel())
+    
+    private let searchBar: UISearchBar = {
+        $0.placeholder = "Search for a character..."
+        $0.isTranslucent = true
+        $0.searchTextField.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
+        $0.searchBarStyle = UISearchBar.Style.minimal
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UISearchBar())
+    
+    private let charactersTitleLabel: UILabel = {
+        $0.text = "Characters"
+        $0.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.textColor = #colorLiteral(red: 0.2179532051, green: 0.2036896348, blue: 0.1906547546, alpha: 1)
         return $0
     }(UILabel())
     
     private let tableView: UITableView = {
         $0.showsVerticalScrollIndicator = false
-        $0.backgroundColor = .systemGray5
+        $0.separatorStyle = .none
+        $0.backgroundColor = #colorLiteral(red: 0.9724746346, green: 0.9725909829, blue: 0.9724350572, alpha: 1)
         $0.tableFooterView = UIView()
         $0.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -38,10 +56,11 @@ class CharacterListViewController: BaseViewController {
     override func loadView() {
         super.loadView()
         setupTitle()
+        setupSearchBar()
+        setupCharactersTitle()
         setupTableView()
-        setupBindings()
+        setupObservers()
         viewModel.getCharacters()
-        view.backgroundColor = .white
     }
     
     init(viewModel: CharacterListViewModel) {
@@ -57,9 +76,32 @@ class CharacterListViewController: BaseViewController {
     func setupTitle() {
         view.addSubview(titleLabel)
         
-        let marginTop = NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 24)
+        let marginTop = NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 48)
         let marginLeft = NSLayoutConstraint(item: titleLabel, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant:24)
         let marginRight = NSLayoutConstraint(item: titleLabel, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant:-24)
+        
+        NSLayoutConstraint.activate([marginTop, marginLeft, marginRight])
+    }
+    
+    private func setupSearchBar() {
+        view.addSubview(searchBar)
+        searchBar.delegate = self
+        
+        let marginTop = NSLayoutConstraint(item: searchBar, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1.0, constant: 16)
+        let marginLeft = NSLayoutConstraint(item: searchBar, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant:16)
+        let marginRight = NSLayoutConstraint(item: searchBar, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant:-16)
+        
+        let height = NSLayoutConstraint(item: searchBar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 49)
+        
+        NSLayoutConstraint.activate([marginTop, marginLeft, marginRight, height])
+    }
+    
+    func setupCharactersTitle() {
+        view.addSubview(charactersTitleLabel)
+        
+        let marginTop = NSLayoutConstraint(item: charactersTitleLabel, attribute: .top, relatedBy: .equal, toItem: searchBar, attribute: .bottom, multiplier: 1.0, constant: 16)
+        let marginLeft = NSLayoutConstraint(item: charactersTitleLabel, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant:24)
+        let marginRight = NSLayoutConstraint(item: charactersTitleLabel, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant:-24)
         
         NSLayoutConstraint.activate([marginTop, marginLeft, marginRight])
     }
@@ -69,7 +111,7 @@ class CharacterListViewController: BaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        let marginTop = NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1.0, constant: 24)
+        let marginTop = NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: charactersTitleLabel, attribute: .bottom, multiplier: 1.0, constant: 8)
         let marginLeft = NSLayoutConstraint(item: tableView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0)
         let marginRight = NSLayoutConstraint(item: tableView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant:0)
         let marginBottom = NSLayoutConstraint(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0)
@@ -77,7 +119,7 @@ class CharacterListViewController: BaseViewController {
         NSLayoutConstraint.activate([marginTop, marginLeft, marginRight, marginBottom])
     }
     
-    private func setupBindings() {
+    private func setupObservers() {
         viewModel
             .error
             .observeOn(MainScheduler.init())
@@ -104,6 +146,10 @@ class CharacterListViewController: BaseViewController {
     func reloadData() {
         tableView.reloadData()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
 }
 
 extension CharacterListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -114,13 +160,18 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "characterTableViewCell") as? CharacterTableViewCell ??
             CharacterTableViewCell(style: .default, reuseIdentifier: "characterTableViewCell")
+        cell.configureWith(CharacterTableViewCellViewModel(), character: characterList[indexPath.row])
         
-        cell.nameLabel.text = characterList[indexPath.row].name
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let characterDetailViewController = CharacterDetailViewController(viewModel: CharacterDetailViewModel(), character: characterList[indexPath.row])
+        present(characterDetailViewController, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 128.0
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -131,6 +182,12 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
         if offsetY > contentHeight - scrollView.frame.size.height {
             loadMoreData()
         }
+        
+    }
+}
+
+extension CharacterListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
     }
 }

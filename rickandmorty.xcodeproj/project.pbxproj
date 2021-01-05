@@ -11,6 +11,7 @@
 		3228619B25703A0200A1639E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228619A25703A0200A1639E /* NetworkManager.swift */; };
 		322861A42570482F00A1639E /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322861A32570482F00A1639E /* UIColor+Hex.swift */; };
 		322861AF2570556800A1639E /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322861AE2570556800A1639E /* Characters.swift */; };
+		322861BF25709D6600A1639E /* UIView+CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322861BE25709D6600A1639E /* UIView+CardView.swift */; };
 		322CAF28256F3BF300508D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CAF27256F3BF300508D72 /* AppDelegate.swift */; };
 		322CAF2A256F3BF300508D72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CAF29256F3BF300508D72 /* SceneDelegate.swift */; };
 		322CAF31256F3BF500508D72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322CAF30256F3BF500508D72 /* Assets.xcassets */; };
@@ -23,6 +24,15 @@
 		322CAF99256F49B000508D72 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CAF98256F49B000508D72 /* Character.swift */; };
 		322CAF9F256F4C0B00508D72 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CAF9E256F4C0B00508D72 /* BaseViewModel.swift */; };
 		322CAFA4256F4E6900508D72 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CAFA3256F4E6900508D72 /* BaseViewController.swift */; };
+		3269962C257169B80092C3C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3269962A2571697D0092C3C3 /* LaunchScreen.storyboard */; };
+		3269963F257197270092C3C3 /* UILabel+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269963E257197270092C3C3 /* UILabel+Padding.swift */; };
+		32699644257583450092C3C3 /* UISearchBar+TextFieldColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32699643257583450092C3C3 /* UISearchBar+TextFieldColor.swift */; };
+		32699649257591B40092C3C3 /* CharacterTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32699648257591B40092C3C3 /* CharacterTableViewCellViewModel.swift */; };
+		3269964E2575EDDF0092C3C3 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269964D2575EDDF0092C3C3 /* EpisodeTableViewCell.swift */; };
+		326996572575F01A0092C3C3 /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 326996562575F01A0092C3C3 /* swiftlint.yml */; };
+		329D3C69257733D500DC4B6F /* Episodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329D3C68257733D500DC4B6F /* Episodes.swift */; };
+		329D3C6E2577340900DC4B6F /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329D3C6D2577340900DC4B6F /* Info.swift */; };
+		329D3C732577342E00DC4B6F /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329D3C722577342E00DC4B6F /* Episode.swift */; };
 		6155F5D5A46C2D469CEBE572 /* Pods_rickandmorty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71BEA24301DF838C4859555 /* Pods_rickandmorty.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +58,7 @@
 		3228619A25703A0200A1639E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		322861A32570482F00A1639E /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		322861AE2570556800A1639E /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		322861BE25709D6600A1639E /* UIView+CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CardView.swift"; sourceTree = "<group>"; };
 		322CAF24256F3BF300508D72 /* rickandmorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rickandmorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		322CAF27256F3BF300508D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		322CAF29256F3BF300508D72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +77,15 @@
 		322CAF98256F49B000508D72 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		322CAF9E256F4C0B00508D72 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		322CAFA3256F4E6900508D72 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3269962A2571697D0092C3C3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = /Users/tiagomdosantos/Developer/Personal/rickandmorty/rickandmorty/LaunchScreen.storyboard; sourceTree = "<absolute>"; };
+		3269963E257197270092C3C3 /* UILabel+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Padding.swift"; sourceTree = "<group>"; };
+		32699643257583450092C3C3 /* UISearchBar+TextFieldColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+TextFieldColor.swift"; sourceTree = "<group>"; };
+		32699648257591B40092C3C3 /* CharacterTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		3269964D2575EDDF0092C3C3 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
+		326996562575F01A0092C3C3 /* swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
+		329D3C68257733D500DC4B6F /* Episodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
+		329D3C6D2577340900DC4B6F /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		329D3C722577342E00DC4B6F /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		5D323EEEC87C1A80BB379B4A /* Pods-rickandmorty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rickandmorty.release.xcconfig"; path = "Target Support Files/Pods-rickandmorty/Pods-rickandmorty.release.xcconfig"; sourceTree = "<group>"; };
 		A71BEA24301DF838C4859555 /* Pods_rickandmorty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rickandmorty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38ECCCD8A5EA0069E75AE72 /* Pods-rickandmorty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rickandmorty.debug.xcconfig"; path = "Target Support Files/Pods-rickandmorty/Pods-rickandmorty.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				3228618F257031E400A1639E /* CharacterTableViewCell.swift */,
+				3269964D2575EDDF0092C3C3 /* EpisodeTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -109,6 +130,9 @@
 			isa = PBXGroup;
 			children = (
 				322861A32570482F00A1639E /* UIColor+Hex.swift */,
+				322861BE25709D6600A1639E /* UIView+CardView.swift */,
+				3269963E257197270092C3C3 /* UILabel+Padding.swift */,
+				32699643257583450092C3C3 /* UISearchBar+TextFieldColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -145,10 +169,12 @@
 				322CAF62256F3C7800508D72 /* Models */,
 				322CAF61256F3C6B00508D72 /* Controllers */,
 				322CAF60256F3C6300508D72 /* ViewModels */,
+				3269962A2571697D0092C3C3 /* LaunchScreen.storyboard */,
 				322CAF27256F3BF300508D72 /* AppDelegate.swift */,
 				322CAF29256F3BF300508D72 /* SceneDelegate.swift */,
 				322CAF30256F3BF500508D72 /* Assets.xcassets */,
 				322CAF35256F3BF500508D72 /* Info.plist */,
+				326996562575F01A0092C3C3 /* swiftlint.yml */,
 			);
 			path = rickandmorty;
 			sourceTree = "<group>";
@@ -176,6 +202,7 @@
 			children = (
 				322CAF63256F3CA000508D72 /* CharacterListViewModel.swift */,
 				322CAF6B256F3CBF00508D72 /* CharacterDetailViewModel.swift */,
+				32699648257591B40092C3C3 /* CharacterTableViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -194,6 +221,9 @@
 			children = (
 				322CAF98256F49B000508D72 /* Character.swift */,
 				322861AE2570556800A1639E /* Characters.swift */,
+				329D3C68257733D500DC4B6F /* Episodes.swift */,
+				329D3C6D2577340900DC4B6F /* Info.swift */,
+				329D3C722577342E00DC4B6F /* Episode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -338,6 +368,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				322CAF31256F3BF500508D72 /* Assets.xcassets in Resources */,
+				326996572575F01A0092C3C3 /* swiftlint.yml in Resources */,
+				3269962C257169B80092C3C3 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,16 +438,24 @@
 			files = (
 				322CAF28256F3BF300508D72 /* AppDelegate.swift in Sources */,
 				322861A42570482F00A1639E /* UIColor+Hex.swift in Sources */,
+				32699649257591B40092C3C3 /* CharacterTableViewCellViewModel.swift in Sources */,
 				322CAF76256F3CF800508D72 /* CharacterDetailViewController.swift in Sources */,
 				322CAF6C256F3CBF00508D72 /* CharacterDetailViewModel.swift in Sources */,
+				329D3C69257733D500DC4B6F /* Episodes.swift in Sources */,
 				322861AF2570556800A1639E /* Characters.swift in Sources */,
 				322CAF71256F3CD900508D72 /* CharacterListViewController.swift in Sources */,
+				3269963F257197270092C3C3 /* UILabel+Padding.swift in Sources */,
 				322CAF64256F3CA000508D72 /* CharacterListViewModel.swift in Sources */,
+				3269964E2575EDDF0092C3C3 /* EpisodeTableViewCell.swift in Sources */,
 				322CAFA4256F4E6900508D72 /* BaseViewController.swift in Sources */,
 				322CAF9F256F4C0B00508D72 /* BaseViewModel.swift in Sources */,
+				329D3C6E2577340900DC4B6F /* Info.swift in Sources */,
 				3228619B25703A0200A1639E /* NetworkManager.swift in Sources */,
 				32286190257031E400A1639E /* CharacterTableViewCell.swift in Sources */,
+				329D3C732577342E00DC4B6F /* Episode.swift in Sources */,
+				322861BF25709D6600A1639E /* UIView+CardView.swift in Sources */,
 				322CAF2A256F3BF300508D72 /* SceneDelegate.swift in Sources */,
+				32699644257583450092C3C3 /* UISearchBar+TextFieldColor.swift in Sources */,
 				322CAF99256F49B000508D72 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

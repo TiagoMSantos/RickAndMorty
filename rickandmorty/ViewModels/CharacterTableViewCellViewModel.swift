@@ -1,20 +1,18 @@
 //
-//  CharacterDetailViewModel.swift
+//  CharacterTableViewCellViewModel.swift
 //  rickandmorty
 //
-//  Created by Tiago Mattos dos Santos on 25/11/20.
+//  Created by Tiago Mattos dos Santos on 30/11/20.
 //
 
 import Foundation
 import RxSwift
 import RxCocoa
 
-final class CharacterDetailViewModel: BaseViewModel {
-    
+class CharacterTableViewCellViewModel: BaseViewModel {
     // MARK: Variables
     private let repository: NetworkManager = NetworkManager()
     public let imagePublishSubject : PublishSubject<UIImage> = PublishSubject()
-    public let firstEpisodeNamePublishSubject : PublishSubject<String?> = PublishSubject()
     
     // MARK: Services
     func getImage(url: String) {
@@ -28,11 +26,4 @@ final class CharacterDetailViewModel: BaseViewModel {
             }
         }
     }
-    
-    func getEpisode(url: String) {
-        repository.getEpisode(url: url) { (episode, error) in
-            self.firstEpisodeNamePublishSubject.onNext(episode?.name)
-        }
-    }
-    
 }
